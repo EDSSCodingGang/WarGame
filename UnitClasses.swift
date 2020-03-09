@@ -23,8 +23,10 @@ class Unit {
     var isDone: Bool
     var cost: [String:Int]
     var side: String
+    var currentSupply: Int
+    var maxSupply: Int
     
-    init(maxHealth: Int, defense: Int, movement: Int, attack: Int, minRange: Int, maxRange: Int, postMoveAttack: Bool, position: [Int], isAir: Bool, cost: [Int], side: String) {
+    init(maxHealth: Int, defense: Int, movement: Int, attack: Int, minRange: Int, maxRange: Int, postMoveAttack: Bool, position: [Int], isAir: Bool, cost: [Int], side: String, currentSupply: String, maxSupply: String) {
         self.maxHealth = maxHealth
         self.currentHealth = maxHealth
         self.defense = defense
@@ -39,18 +41,40 @@ class Unit {
         isDone = true
         self.cost = ["Money" : cost[0], "Steel" : cost[1], "Oil" : cost[2]]
         self.side = side
+        self.currentSupply = currentSupply
+        self.maxSupply = maxSupply
     }
     
     //Methods
     
     //Attack --> takes another unit and does combat calculations based off of stats and other unit's stats
     
-    func attackFunc(target:Unit) {
-        //Placeholder Function
-        print("bruh")
-        
+    func attackFunc(beingAttacked:Unit){
+    if currentSupply > 0{
+        if currentHealth < currentSupply{
+            if attackingissupposedtocallthenumberfromtheenemyarraydontworryaboutit.defense < (currentHealth * attack){
+                attacking.currentHealth = attacking.currentHealth - (currentHealth * attack) + attacking.defense
+            }
+            else{
+                print("no dameg")
+            }
+        }
+        else{
+            if attacking.defense < (currentSupply * attack){
+                attacking.currentHealth = attacking.currentHealth - (currentSupply * attack) + attacking.defense
+            }
+            else{
+                print("no dmgea")
+            }
+        }
     }
-    
+    //check if supply is greater than 0, if it is:{
+        //calculate current health
+        //calculate supply
+        //take smaller integer of the two and times default unit damage output
+        //take away calculated damage from enemy health minus the enemy's defense value
+        //subtract i from the suply where i is the smaller number of either current hp or supply
+    //}
     //Movement --> Changing position based off of inputted position, which will be within movement (range) and is valid.
     
     
@@ -60,9 +84,9 @@ class medic:Unit {
     
     var healPoints: Int
     
-    init(maxHealth: Int, defense: Int, movement: Int, healPoints: Int, minRange: Int, maxRange: Int, postMoveAttack: Bool, position: [Int], isAir: Bool, cost: [Int], side: String) {
+    init(maxHealth: Int, defense: Int, movement: Int, healPoints: Int, minRange: Int, maxRange: Int, postMoveAttack: Bool, position: [Int], isAir: Bool, cost: [Int], side: String, currentSupply: String, maxSupply: String) {
         self.healPoints = healPoints
-        super.init(maxHealth: maxHealth, defense: defense, movement: movement, attack: 0, minRange: minRange, maxRange: maxRange, postMoveAttack: postMoveAttack, position: position, isAir: isAir, cost: cost, side: side)
+        super.init(maxHealth: maxHealth, defense: defense, movement: movement, attack: 0, minRange: minRange, maxRange: maxRange, postMoveAttack: postMoveAttack, position: position, isAir: isAir, cost: cost, side: side, currentSupply = currentSupply, maxSupply = maxSupply)
     }
     
     override func attackFunc(target:Unit) {
@@ -77,8 +101,8 @@ class medic:Unit {
 
 class sapper:Unit {
     
-    override init(maxHealth: Int, defense: Int, movement: Int, attack: Int, minRange: Int, maxRange: Int, postMoveAttack: Bool, position: [Int], isAir: Bool, cost: [Int], side: String) {
-        super.init(maxHealth: maxHealth, defense: defense, movement: movement, attack: 0, minRange: minRange, maxRange: maxRange, postMoveAttack: postMoveAttack, position: position, isAir: isAir, cost: cost, side: side)
+    override init(maxHealth: Int, defense: Int, movement: Int, attack: Int, minRange: Int, maxRange: Int, postMoveAttack: Bool, position: [Int], isAir: Bool, cost: [Int], side: String, currentSupply: String, maxSupply: String) {
+        super.init(maxHealth: maxHealth, defense: defense, movement: movement, attack: 0, minRange: minRange, maxRange: maxRange, postMoveAttack: postMoveAttack, position: position, isAir: isAir, cost: cost, side: side, currentSupply, maxSupply = maxSupply)
     }
     
     func makeTrench() {
