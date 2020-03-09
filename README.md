@@ -9,9 +9,9 @@ Storyboard and Lore Creator: Brendan Blaise
 
 Game Tester: Liam Boulianne
 
-Sound Guy: Ethan 
+Sound Master: Ethan 
 
-Code Kid: Anon
+Lego Robotics Engineer: Anon
 
 Dragon Idea: Zach Vale
 
@@ -19,4 +19,6 @@ House Builder: Eric Luo
 
 Visual Effects: N/A
 
+Made for the Google Chromebook.
 
+WWII is an entirely fictional event that Brendan Blaise has created. We do not agree with any of the fictional events that "happened" during the fictional story. We respect all relegions. 
