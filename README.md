@@ -22,3 +22,5 @@ EDSSCodingGang is happy to introduce you to our amazing and fantastic coders tha
 Made for the Google Chromebook.
 
 Copyrighted by the trademark society of gamers.
+
+LOOK HERE FOR EPIC TILE STUFFS: https://www.raywenderlich.com/1079-what-s-new-in-spritekit-on-ios-10-a-look-at-tile-maps 
